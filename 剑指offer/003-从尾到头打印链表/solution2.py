@@ -10,8 +10,8 @@ class Solution:
         # write code here
          
         l = []
-        head = listNode
-        while head:
+        node = listNode
+        while node:
             l.insert(0,head.val)
             head = head.next
         return l
