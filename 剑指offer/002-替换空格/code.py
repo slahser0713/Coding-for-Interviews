@@ -17,7 +17,7 @@ class Solution:
                 new_list[j+2] = "0"
                 j += 3
             else:
-                new_list[j] = s[i]
+                new_list[j] = s[i]#不是空格时，在新列表的当前下标添加字符串的非空格字符
                 j += 1
         return "".join(new_list)
 
