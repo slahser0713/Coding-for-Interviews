@@ -11,13 +11,13 @@ https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/
 
 给定二叉树 [3,9,20,null,null,15,7],
 
-
++
     3
    / \
   9  20
     /  \
    15   7
-   
++  
 返回它的最小深度  2.
 
 思路
