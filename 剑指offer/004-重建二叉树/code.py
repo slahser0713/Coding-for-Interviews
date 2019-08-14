@@ -22,6 +22,21 @@ def preorder(root):
         print(root.val)
         preorder(root.left)
         preorder(root.right)
+        
+def breadth_travel(root):
+    if not root:
+        return
+    queue = [root]
+    result = []
+    while queue:
+        cur = queue.pop(0)
+        result.append(cur.val)
+        if cur.left:
+            queue.append(cur.left)
+        if cur.right:
+            queue.append(cur.right)
+    return result
 
 a = Solution()
 preorder(a.reConstructBinaryTree([1, 2, 3, 4, 5, 6, 7], [3, 2, 4, 1, 6, 5, 7]))
+print(breadth_travel(a.reConstructBinaryTree([1, 2, 3, 4, 5, 6, 7], [3, 2, 4, 1, 6, 5, 7])))
