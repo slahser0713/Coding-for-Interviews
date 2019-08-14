@@ -7,7 +7,7 @@
 
 采用二分法解答这个问题，
 mid = low + (high - low)/2
-需要考虑三种情况：
+需要考虑三种情况：  
 (1)array[mid] > array[high]:  
 出现这种情况的array类似[3,4,5,6,0,1,2]，此时最小数字一定在mid的右边。  
 low = mid + 1  
