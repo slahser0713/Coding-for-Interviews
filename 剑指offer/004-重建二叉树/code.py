@@ -4,25 +4,24 @@ class TreeNode:
         self.left = None
         self.right = None
 
-
-# 返回构造的TreeNode根节点
-def reConstructBinaryTree(pre, tin):
-    # write code here
-    if not pre:
-        return None
-    root_val = pre[0]
-    root = TreeNode(root_val)
-    for i in range(len(tin)):
-        if tin[i] == root_val:
-            break
-    root.left = reConstructBinaryTree(pre[1:1+i], tin[:i])
-    root.right = reConstructBinaryTree(pre[1+i:], tin[i+1:])
-    
-    return root
+class Solution:
+    # 返回构造的TreeNode根节点
+    def reConstructBinaryTree(self, pre, tin):
+        if not pre:
+            return
+        root = TreeNode(pre[0])
+        for i in range(len(tin)):
+            if tin[i] == root.val:
+                break
+        root.left = self.reConstructBinaryTree(pre[1:i+1],tin[:i])#pre的1到i个数为左子树的先序遍历，tin的0到i-1个数为左子树的中序遍历
+        root.right = self.reConstructBinaryTree(pre[i+1:],tin[i+1:])#pre的i+1到最后一个数为左子树的先序遍历，tin的i+1到最后一个数为左子树的中序遍历
+        return root
 
 def preorder(root):
     if root:
-        preorder(root.left)
         print(root.val)
+        preorder(root.left)
         preorder(root.right)
-preorder(reConstructBinaryTree([1,2,3,4,5,6,7],[3,2,4,1,6,5,7]))
+
+a = Solution()
+preorder(a.reConstructBinaryTree([1, 2, 3, 4, 5, 6, 7], [3, 2, 4, 1, 6, 5, 7]))
