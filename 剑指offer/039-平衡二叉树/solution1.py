@@ -3,18 +3,18 @@ class TreeNode:
         self.val = x
         self.left = None
         self.right = None
-
-def getDeep(x):
-    if x is None:
-        return 0
-    return 1 + max(getDeep(x.left), getDeep(x.right))
-
-class Solution:
-    def IsBalanced_Solution(self, pRoot):
+class Solution:#方法一，对每个节点的左右子树求深度，深度差绝对值不超过1则为平衡二叉树
+    def IsBalanced_Solution(self, pRoot:TreeNode):
         # write code here
         if not pRoot:
-            return 1
-        return abs(getDeep(pRoot.left)-getDeep(pRoot.right)) <= 1 \
-                and IsBalanced_Solution(pRoot.left) \
-                and IsBalanced_Solution(pRoot.right) 
+            return True
+        if abs(self.depth(pRoot.left)-self.depth(pRoot.right)) > 1:
+            return False
+        return self.IsBalanced_Solution(pRoot.left) and self.IsBalanced_Solution(pRoot.right)#对左右子节点继续进行对比
 
+    def depth(self,root:TreeNode):#求该节点深度
+        if not root:
+            return 0
+        ldepth = self.depth(root.left)
+        rdepth = self.depth(root.right)
+        return max(ldepth,rdepth)+1
