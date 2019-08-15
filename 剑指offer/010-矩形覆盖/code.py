@@ -1,11 +1,11 @@
-def rectCover(number):
-    # write code here
-    f1 = 1
-    f2 = 2
-    if number == 1: return f1
-    if number == 2: return f2
-    for _ in range(number-2):
-        f2, f1 = f1 + f2, f2
-    return f2
-
-print(rectCover(3))
+class Solution:
+    def rectCover(self, number):
+        res = [0,1,2,0]
+        if number < 3:
+            return res[number]
+        else:
+            for i in range(3,number+1):
+                res[3] = res[1] + res[2]
+                res[1] = res[2]
+                res[2] = res[3]
+            return res[3]
