@@ -1,14 +1,13 @@
-from ctypes import *
-def NumberOf1(n):
-    # write code here
-    cnt = 0
-    while c_int(n).value:
-        n = n & (n-1)
-        cnt += 1
-        print(c_int(n), n)
-    return cnt
-
-print(NumberOf1(-3))
+class Solution:
+    def NumberOf1(self, n):
+        # write code here
+        count = 0
+        if n < 0:
+            n = n & 0xffffffff
+        while n:
+            count += 1
+            n = (n - 1) & n
+        return count
 
 
 
