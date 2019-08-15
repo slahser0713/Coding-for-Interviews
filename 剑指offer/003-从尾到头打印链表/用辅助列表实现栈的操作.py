@@ -16,3 +16,12 @@ class Solution:
         while stack:
             result.append(stack.pop())
         return result
+
+class Solution:
+# 辅助列表result，达到栈的效果
+def printListFromTailToHead(self, listNode):#
+    res = []
+    while listNode:
+        res.append(listNode.val)
+        listNode = listNode.next
+    return res[::-1]
