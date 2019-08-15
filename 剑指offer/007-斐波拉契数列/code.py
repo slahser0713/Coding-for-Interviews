@@ -1,10 +1,7 @@
-def Fibonacci(n):
-    # write code here
-    f1 = 0
-    f2 = 1
-    if n == 0: return f1
-    elif n == 1: return f2
-    for _ in range(n-1):
-        f2, f1 = f1+f2, f2
-    return f2
-print(Fibonacci(3))
+class Solution:
+    def Fibonacci(self, n):
+        # write code here
+        res = [0,1]
+        for i in range(2,n+1):
+            res.append(res[i-2]+res[i-1])
+        return res[n]

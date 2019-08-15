@@ -1,16 +1,15 @@
-def getDeep(x):
-    if x is None:
-        return 0
-    left = getDeep(x.left)
-    if left == -1:
-        return -1
-    right = getDeep(x.right)
-    if right == -1:
-        return -1
-    return -1 if abs(left-right) > 1 else 1 + max(left, right)
-
-
-class Solution:
+class Solution:#方法二，dfs
     def IsBalanced_Solution(self, pRoot):
-        # write code here
-        return getDeep(pRoot) != -1
+        return self.dfs(pRoot) != -1
+    def dfs(self, pRoot):
+        if pRoot is None:
+            return 0
+        left = self.dfs(pRoot.left)
+        if left == -1:
+            return -1
+        right = self.dfs(pRoot.right)
+        if right == -1:
+            return -1
+        if abs(left - right) > 1:#左右节点如果深度差大于1返回False
+            return -1
+        return max(left, right) + 1 #如果左右节点都不返回False，代表其为平衡二叉树，返回其深度
