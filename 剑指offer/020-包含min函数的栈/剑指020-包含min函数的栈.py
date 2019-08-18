@@ -18,3 +18,4 @@ class Solution:
         return self.stack[-1]
     def min(self):
         return self.min_stack[-1]
+
