@@ -1,14 +1,4 @@
-def sum(n):
-    try:
-        1 % n
-        return n + sum(n-1)
-    except:
-        return 0
-
-
 class Solution:
     def Sum_Solution(self, n):
-        return sum(n)
-
-
-print(Solution().Sum_Solution(10))
+        res = n
+        return res and res + self.Sum_Solution(n-1)#在python中，A and B如果A为True返回B,如果A为Faule返回A，这里递归到n = 0时，返回res = 0，完成累加
