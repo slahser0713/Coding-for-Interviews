@@ -1,5 +1,6 @@
 def helper(sequence):
-    if len(sequence) <= 1: return True
+    if len(sequence) <= 1:
+        return True
     root = sequence[-1]
     for i in range(len(sequence)):
         if sequence[i] > root:
@@ -14,4 +15,3 @@ def VerifySquenceOfBST(sequence):
     # write code here
     if not sequence: return False
     return helper(sequence)
-print(VerifySquenceOfBST([7,4,6,5]))
