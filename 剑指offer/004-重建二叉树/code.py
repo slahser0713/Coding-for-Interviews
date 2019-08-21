@@ -17,6 +17,8 @@ class Solution:
         root.right = self.reConstructBinaryTree(pre[i+1:],tin[i+1:])#pre的i+1到最后一个数为左子树的先序遍历，tin的i+1到最后一个数为左子树的中序遍历
         return root
 
+
+#下面是做判断用的判断
 def preorder(root):
     if root:
         print(root.val)
