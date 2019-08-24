@@ -1,18 +1,25 @@
+class TreeNode:
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
 class Solution:
-    # 返回二维列表[[1,2],[4,5]]
     def Print(self, pRoot):
-        # write code here
-        if not pRoot: return []
+        if not pRoot:
+            return []
         queue = [pRoot]
         res = []
+        num  = 0
         while queue:
+            now_res = []
             n = len(queue)
-            temp = []
-            for _ in range(n):
-                node = queue.pop(0)
-                temp.append(node.val)
-                if node.left: queue.append(node.left)
-                if node.right: queue.append(node.right)
-            res.append(temp)
+            for i in range(n):
+                cur = queue.pop(0)
+                if cur.left:
+                    queue.append(cur.left)
+                if cur.right:
+                    queue.append(cur.right)
+                now_res.append(cur.val)
+            res.append(now_res)
         return res
                 
